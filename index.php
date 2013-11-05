@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 function loadClass($className){
 	require $className . '.class.php';
 }
@@ -6,26 +7,16 @@ spl_autoload_register('loadClass');
 ?>
 
 <html>
+	<meta charset="UTF-8" />
 <?php
-	if(isset($_GET['ligne']))
-		$maxligne = $_GET['ligne'];
-	else
-		$maxligne = 10;
+	$av = new Avatar("barimage.bmp");
+	$data = array(
+		array(new Joueur("Haution","Yohann",$av),$av),
+		array(new Joueur("Pignouf","Gérard",$av),$av)
+	);
 
-	if (isset($_GET['col'])) 
-		$maxcol = $_GET['col'];
-	else
-		$maxcol = 5;
-	
-	$data;
-	$count = 1;
-	for ($i=0; $i < $maxcol ; $i++) {		
-		for ($j=0; $j < $maxligne; $j++) { 
-			$data[$i][$j] = "Cellule ".$count;
-			$count++;
-		}
-	}	
 	$table = new TableHTML($data);
-	$table->afficher();
+	$tableId = new AttrId($table,"test");
+	$tableId->afficher();
 ?>
 </html>

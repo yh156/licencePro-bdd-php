@@ -1,5 +1,5 @@
 <?php
-class CelluleHTML extends ElementHTML
+abstract class CelluleHTML extends ElementHTML
 {
 
 	private $contenuCellule;
@@ -8,19 +8,14 @@ class CelluleHTML extends ElementHTML
 		$this->contenuCellule = $data;
 	}
 
-	protected  function construireDebut(){
+	public  function construireDebut(){
 		$debut  = "<td style='border: 1px solid black'>";
-		return $debut;
+		echo $debut;
 	}
 
-	protected function construireCorps(){
-		$corps = $this->contenuCellule;
-		return $corps;
-	}
-
-	protected function construireFin(){
+	public function construireFin(){
 		$fin =  "</td>";
-		return $fin;
+		echo $fin;
 	}
 }
 ?>

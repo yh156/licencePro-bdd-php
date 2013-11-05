@@ -6,27 +6,26 @@ class LigneHTML extends ElementHTML
 
 	public function __construct($data){
 		foreach ($data as $key => $value) {
-			$this->cellules[$key] = new CelluleHTML($value);
+			$this->cellules[$key] = $value;
 		}
-
+		
 	}
 
-	protected  function construireDebut(){
+	public  function construireDebut(){
 		$debut  = "<tr>";
-		return $debut;
+		echo $debut;
 	}
 
-	protected function construireCorps(){
-		$corps = "";
-		foreach ($this->cellules as $key => $value) {			
-			$corps .= $value->afficher();
+	public function construireCorps(){
+		$corps = "";		
+		foreach ($this->cellules as $key => $value) {
+			$value->afficher();
 		}
-		return $corps;
 	}
 
-	protected function construireFin(){
+	public function construireFin(){
 		$fin =  "</tr>";
-		return $fin;
+		echo $fin;
 	}
 
 

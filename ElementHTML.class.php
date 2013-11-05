@@ -2,9 +2,9 @@
 Abstract class ElementHTML
 {
 	public function afficher(){
-		echo $this->construireDebut();		
-		echo $this->construireCorps();		
-		echo $this->construireFin();
+		$this->construireDebut();		
+		$this->construireCorps();		
+		$this->construireFin();
 	}
 
 	protected Abstract  function construireDebut();

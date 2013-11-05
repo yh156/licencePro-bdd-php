@@ -9,25 +9,22 @@ class TableHTML extends ElementHTML
 		}	
 	}
 
-	protected  function construireDebut(){
-		$debut  = "<table style='border: 1px solid black'>";
-		return $debut;
+	public  function construireDebut(){
+		$debut  = "<table style='border: 1px solid black'";
+		echo $debut;
 	}
 
-	protected function construireCorps(){
-		$corps = "";
+	public function construireCorps(){		
+		$corps = ">";
 		foreach ($this->lignes as $key => $value) {	
-			$corps .= $value->afficher();
-		}
-		return $corps;
+			$value->afficher();
+		}		
 	}
 
-	protected function construireFin(){
+	public function construireFin(){
 		$fin =  "</table>";
-		return $fin;
+		echo $fin;
 	}
-
-
 }
 
 
