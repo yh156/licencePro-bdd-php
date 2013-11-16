@@ -1,11 +1,23 @@
 <?php
 class myPDO
 {
+        /**
+         *
+         * @var PDO
+         */
 	private static $pdo = null;
 
-
+        /**
+         * /!\ PDO is set with pgsql. Change to mysql in the PDO constructor for a MySQL database
+         */
 	private function __construct(){
-		self::$pdo = new PDO('mysql:dbname=tp_php;host=localhost',"root" ,""); 
+            try {
+                self::$pdo = new PDO('pgsql:dbname=tp_php;host=localhost',"admin" ,"admin");
+                self::$pdo->setAttribute(PDO::ERRMODE_EXCEPTION, true);
+            } 
+            catch (PDOException $exc) {
+                echo $exc->getTraceAsString();
+            } 
 	}
 
 	public static function getInstance(){  

@@ -7,26 +7,37 @@ class Citoyen extends CelluleHTML
 	private $prenom;
 	private $mail;
 	private $dateInscription;
+        private $password;
 
-	public function __construct($pseudo,$nom,$prenom,$mail,$dateInscription){
-		$this->pseudo = $pseudo;
-		$this->nom = $nom;
-		$this->prenom = $prenom;
-		$this->mail = $mail;
-		$this->dateInscription = $dateInscription;
+	public function __construct($pseudo,$nom,$prenom,$mail,$dateInscription,$password){
+            parent::__construct(null);
+            $this->pseudo = $pseudo;
+            $this->nom = $nom;
+            $this->prenom = $prenom;
+            $this->mail = $mail;
+            $this->dateInscription = $dateInscription;
+            $this->password = $password;
 	}
 
 	public function construireCorps(){
-		$corps = "";
-		$corps .= $this->pseudo;
-		$corps .= " ";
-		$corps .= $this->nom;
-		$corps .= " ";
-		$corps .= $this->prenom;
-		$corps .= "<br>";
-		$corps .= $this->mail;
-		echo $corps;
+            $corps = "";
+            $corps .= $this->pseudo;
+            $corps .= " ";
+            $corps .= $this->nom;
+            $corps .= " ";
+            $corps .= $this->prenom;
+            $corps .= "<br>";
+            $corps .= $this->mail;
+            echo $corps;
 	}
+        
+        public function getPassword() {
+            return $this->password;
+        }
+
+        public function setPassword($password) {
+            $this->password = $password;
+        }
 
 	public function getPseudo(){
 		return $this->pseudo;
