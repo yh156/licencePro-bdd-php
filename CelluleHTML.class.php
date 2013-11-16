@@ -2,7 +2,7 @@
 abstract class CelluleHTML extends ElementHTML
 {
 
-	private $contenuCellule;
+	protected $contenuCellule;
 
 	public function __construct($data){
 		$this->contenuCellule = $data;
