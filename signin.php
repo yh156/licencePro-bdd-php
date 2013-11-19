@@ -4,7 +4,7 @@
 	require $className . '.class.php';
     }
     spl_autoload_register('loadClass');
-    
+    session_start();
     //données du formulaire de connexion
     $password = htmlspecialchars($_POST['pwd']);
     $pseudo = htmlspecialchars($_POST['login']);
@@ -19,7 +19,8 @@
     $citoyen = $cit_manager->connect();
     if($citoyen != FALSE){
         $_SESSION['citoyen'] = $citoyen;
-        var_dump($citoyen);
+        $_SESSION['isLog'] = TRUE;
+        header('Location: index.php');
     }
     else{
         echo 'Wrong login/password<br>';

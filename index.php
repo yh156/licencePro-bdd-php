@@ -11,9 +11,18 @@ session_start();
 	<meta charset="UTF-8" />
 <?php
 	$av = new Avatar("barimage.bmp");
-        
         if(isset($_SESSION['isLog']) && $_SESSION['isLog'] == TRUE){ //si le citoyen est logué
-            
+            $citoyen = new Citoyen();
+            $citoyen->setCitoyen($_SESSION['citoyen']);
+            $messages = array(
+                0 => new Message("Message 1"),
+                1 => new Message("Message 2")
+            );
+            $citoyen->setMessages($messages);
+            echo "Bonjour ".ucfirst($citoyen->getPrenom())." ".strtoupper($citoyen->getNom())."<br>";
+            $table = new TableHTML(array(array($citoyen,$av)));
+            $table->afficher();
+            echo "<br>";
         }
         else{ //si le citoyen n'est pas logué
             ?>
